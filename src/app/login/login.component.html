@@ -1,14 +1,13 @@
 <div>
     <input id="user-name" [(ngModel)]="username" placeholder="User name">
     <br>
-    <input id="password" [(ngModel)]="password" placeholder="Password">
+    <input type="password" id="password" [(ngModel)]="password" placeholder="Password">
 </div>
 
 <div class="bar error" *ngIf="error">
-    <i class="ico">&#9747;</i> Error message
+    <i class="ico">&#9747;</i>Invalid login
 </div>
 
-<div class="login" (click)="go()">
-    <button>Log in</button>
-    <!-- <nav> <a routerLink="/users">Log in</a> </nav> -->
-</div>
+<nav class="login" (click)="go()">
+    <a>Log in</a>
+</nav>

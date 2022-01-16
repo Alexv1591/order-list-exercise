@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, from } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 import { User } from './user';
 import { USERS } from './userFile';
 
@@ -7,6 +7,11 @@ import { USERS } from './userFile';
   providedIn: 'root'
 })
 export class UserService {
+
+  private statusSource = new BehaviorSubject('OFF'); // set default status
+  currentStatus = this.statusSource.asObservable();
+
+  currentUser = "";
 
   constructor() { }
 
@@ -18,6 +23,15 @@ export class UserService {
   getUser(id: number): Observable<User> {
     const user = USERS.find(u => u.id === id)!;
     return of(user);
+  }
+
+  changeUser(user: string) {
+    this.statusSource.next(user)
+    this.currentUser = user;
+  }
+
+  logOut(){
+    this.currentUser = "";
   }
 
   // findUserName(name: string): Observable<User> {

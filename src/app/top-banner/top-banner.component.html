@@ -1,8 +1,9 @@
 <div class="toolbar">
     <div class="spacer"></div>
-    <span>Welcome! Please log in</span>
+    <div *ngIf="userName!='OFF' && userName!=''; else elseBlock">Welcome {{userName}}</div>
+    <ng-template #elseBlock>Welcome! Please log in</ng-template>
     <div class="spacer"></div>
-    <nav>
-        <a routerLink="/login">Log out</a>
+    <nav *ngIf="userName">
+        <a routerLink="/login" (click)="logOut()">Log out</a>
     </nav>
 </div>
