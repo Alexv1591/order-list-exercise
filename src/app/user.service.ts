@@ -25,24 +25,25 @@ export class UserService {
     return of(user);
   }
 
-  changeUser(user: string) {
+  getUserByName(name: string): Observable<User> {
+    const user = USERS.find(u => u.name === name)!;
+    return of(user);
+  }
+
+  // checkUserExistance(username: string): void {
+  //   const obs = USERS.find(u => u.name === username);
+  //   this.getUserByName(username).subscribe(data => this.user = data);
+  //   console.log("checkUserExistance()\n" + this.user);
+  //   return username == this.user.name;
+  // }
+
+  changeUser(user: string): void {
     this.statusSource.next(user)
     this.currentUser = user;
   }
 
-  logOut(){
+  logOut(): void {
     this.currentUser = "";
   }
-
-  // findUserName(name: string): Observable<User> {
-  //   const user = USERS.find(u => u.name === name)!;
-  //   const data = from(of(user));
-  //   data.subscribe({
-  //     next(response) { console.log(response); },
-  //     error(err) { console.error('Error: ' + err); },
-  //     complete() { console.log('Completed'); }
-  //   });
-  //   return of(user);
-  // }
 
 }
