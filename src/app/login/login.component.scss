@@ -1,0 +1,48 @@
+input{
+  padding: 0.5rem;
+  margin: 3px;
+}
+
+i.ico {
+  display: inline-block;
+  width: 20px;
+  text-align: center; 
+  font-style: normal;
+  font-weight: bold;
+}
+
+.bar {
+  padding: 10px;
+  margin: 10px;
+  color: #333;
+  background: #fafafa;
+  border: 1px solid #ccc;
+}
+
+.error {
+  color: #ba3939;
+  background: #ffe0e0;
+  border: 1px solid #a33a3a;
+}
+
+#login{
+  transition: all 1s smooth;
+}
+
+nav a {
+    padding: 1rem;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+    background-color: #e8e8e8;
+    color: #3d3d3d;
+    border-radius: 4px;
+  }
+  
+  nav a:hover {
+    color: white;
+    background-color: #42545C;
+  }
+  nav a.active {
+    background-color: black;
+  }
